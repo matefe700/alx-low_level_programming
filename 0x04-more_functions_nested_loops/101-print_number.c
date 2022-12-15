@@ -8,7 +8,10 @@
 
 void print_number(int n)
 {
-	int m, num, t, v;
+	int m;
+	int num;
+	int t;
+	int v;
 
 	if (n < 0)
 		_putchar('-');
