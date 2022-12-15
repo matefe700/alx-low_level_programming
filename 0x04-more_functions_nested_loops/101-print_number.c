@@ -6,20 +6,16 @@
  * Description: Can only use _putchar to print.
  */
 
-void print_number(n)
+void print_number(int n)
 {
-	int m = 1;
-	int num = n;
+	int m, num, t;
 
-	if (num < 0)
-	{
-		num *= -1;
+	if (n < 0)
 		_putchar('-');
-	}
 
-	int t = num;
+	num = (n < 0 ? -1 : 1) * n;
 
-	for (; t > 0; t /= 10,  m *= 10)
+	for (t = num, m = 1; t > 0; t /= 10,  m *= 10)
 		;
 
 	m /= 10;
