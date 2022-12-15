@@ -20,12 +20,15 @@ void print_number(int n)
 	for (t = num, m = 0; t > 0; t /= 10,  m++)
 		;
 
-	for (; m; m--)
-	{
-		v = num;
-		for (t = m; t > 1; t--)
-			v /= 10;
-			_putchar ('0' + v % 10);
+	if (!num) 
+		_putchar('0');
+	else {
+		for (; m; m--)
+		{
+			v = num;
+			for (t = m; t > 1; t--)
+				v /= 10;
+				_putchar ('0' + v % 10);
+		}
 	}
-
 }
