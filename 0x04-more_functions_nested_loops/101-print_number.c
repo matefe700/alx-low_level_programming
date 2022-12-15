@@ -8,27 +8,41 @@
 
 void print_number(int n)
 {
-	int m;
-	int num;
-	int t;
-	int v;
+	int m; /* power of 10 */
+	int c; /* boolean check */
+	int num; /* convert int to long */
 
-	if (n < 0)
+	num = n;
+	/* negatives */
+	if (num < 0)
+	{
+		num *= -1;
 		_putchar('-');
-	num = n < 0 ? -n : n;
+	}
 
-	for (t = num, m = 0; t > 0; t /= 10,  m++)
-		;
+	/* count up */
+	m = 1;
+	c = 1;
+	while (c)
+	{
+		if (num / (m * 10) > 0)
+			m *= 10;
+		else
+			c = 0;
+	}
 
-	if (!num) 
-		_putchar('0');
-	else {
-		for (; m; m--)
+	/* count down */
+	while (num >= 0)
+	{
+		if (m == 1)
 		{
-			v = num;
-			for (t = m; t > 1; t--)
-				v /= 10;
-				_putchar ('0' + v % 10);
+			_putchar(num % 10 + '0');
+			num = -1;
+		}
+		else
+		{
+			_putchar((num / m % 10) + '0');
+			m /= 10;
 		}
 	}
 }
