@@ -5,6 +5,7 @@
  * @n: int type number
  * Description: Can only use _putchar to print.
  */
+
 void print_number(int n)
 {
 	int m; /* power of 10 */
