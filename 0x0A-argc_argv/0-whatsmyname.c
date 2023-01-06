@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - print the name of the file followed by a new line
@@ -10,12 +11,8 @@
 int main(int argc, char *argv[])
 {
 	(void) argc;
-	char * p = argv[0];
 
-	while (*p)
-	{
-		_putchar(*p);
-		p++;
-	}
+	printf("%s\n", argv[0]);
+
 	return (0);
 }
