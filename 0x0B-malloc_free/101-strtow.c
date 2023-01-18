@@ -9,15 +9,26 @@
  * Return: Null if fail, else return a pointer to an array of strings (words)
  */
 
+void print_tab(char **tab)
+{
+    int i;
+
+    for (i = 0; tab[i] != NULL; ++i)
+    {
+        printf("%s\n", tab[i]);
+    }
+}
+
 char **strtow(char *str)
 {
 	char **array = malloc(sizeof(char *));
+	char *sep = " ";
 
 	if (array)
 	{
 		size_t n = 1;
 
-		char *token = strtok(line, ' ');
+		char *token = strtok(str, sep);
 
 		while (token)
 		{
@@ -30,10 +41,11 @@ char **strtow(char *str)
 			++n;
 
 			array[n - 2] = malloc(strlen(token) + 1);
+
 			if (array[n - 2] != NULL)
 				strcpy(array[n - 2], token);
 
-			token = strtok(NULL, ' ');
+			token = strtok(NULL, sep);
 		}
 
 		array[n - 1] = NULL;
@@ -44,18 +56,14 @@ char **strtow(char *str)
 
 int main(void)
 {
-	char s[] = "          Hello             World        ";
-	char **array = chunkify(s, " ");
+    char **tab;
 
-	if (array != NULL)
-	{
-		for (char **p = array; *p; ++p)
-			puts(*p);
-
-		for (char **p = array; *p; ++p)
-			free(*p);
-		free(array);
-	}
-
-	return (0);
+    tab = strtow("      ALX School         #cisfun      ");
+    if (tab == NULL)
+    {
+        printf("Failed\n");
+        return (1);
+    }
+    print_tab(tab);
+    return (0);
 }
