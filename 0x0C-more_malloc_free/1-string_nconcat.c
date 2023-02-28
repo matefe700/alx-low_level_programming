@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
  * string_nconcat - concatenate 2 strings, only n bytes of s2
@@ -19,7 +20,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	strlen1 = (unsigned int)_strlen(s1);
+	strlen1 = (unsigned int)strlen(s1);
 	p = malloc((strlen1 + n + 1) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
@@ -35,17 +36,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	return (p);
 }
 
-/**
- * _strlen - find length of string
- * @s: string
- * Return: length of string
- */
-
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; s[i] != '\0'; i++)
-		;
-	return (i);
-}
