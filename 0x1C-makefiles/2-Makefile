@@ -1,7 +1,0 @@
-#Save in a variables the compiler to be used and files
-CC=gcc
-SRC= main.c school.c
-OBJ= $(SRC:%.c=%.o)
-NAME= school
-all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
